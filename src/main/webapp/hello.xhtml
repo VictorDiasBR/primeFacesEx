@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+<h1> testando</h1>
+
+<h:form>
+
+<h:panelGrid columns="2">
+Nome: <h:inputText/>
+senha: <h:inputSecret/>
+sexo: <h:selectOneMenu>
+<f:selectItem label="masculino" itemValue="m"></f:selectItem>
+<f:selectItem label="feminino" itemValue="f"></f:selectItem>
+</h:selectOneMenu>
+
+Status:<h:selectOneRadio>
+<f:selectItem label="ativo" itemValue="a"/>
+<f:selectItem label="inativo" itemValue="i"/>
+</h:selectOneRadio>
+
+OBS:
+<h:inputTextarea rows="3" cols="20"></h:inputTextarea>
+
+<h:commandButton value="Cadastrar"></h:commandButton>
+</h:panelGrid>
+</h:form>
+</h:body>
+</html>

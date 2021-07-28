@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+
+<h:body>
+
+
+<p:messages autoUpdate="true" id="msg"/>
+<h:form id="form">
+
+<p:panel header="Cadastro de pessoas">
+<h:panelGrid columns="2">
+
+<p:outputLabel value="Nome" for="nome"/>
+<p:inputText id="nome" value="#{bean.pessoa.nome}" required="true" 
+requiredMessage="O nome é obrigatório!" maxlength="40" size="30" title="nome!!"></p:inputText>
+
+<p:outputLabel value="Email"/>
+<p:inputText value="#{bean.pessoa.email}" size="30"></p:inputText>
+
+<p:outputLabel value="Senha" for="senha"/>
+<p:password id="senha" feedback="true" match="confirma" required="true"></p:password>
+
+<p:outputLabel value="ConfirmaSenha" for="confirma"/>
+<p:password  id="confirma" required="true"></p:password>
+<p:outputLabel/>
+<p:commandButton value="adicionar" action="#{bean.adicionar}" update="form tabelaPessoa"></p:commandButton>
+
+</h:panelGrid>
+</p:panel>
+
+</h:form>
+
+<h1>Lista de Pessoas</h1>
+
+<h:form id="form2">
+<p:toolbar>
+	<f:facet name="left">
+		<p:button value="Exibir" icon="ui-icon-document" ></p:button>
+		<p:button value="Diminuir" icon="ui-icon-document" ></p:button>
+	</f:facet>
+	<f:facet name="right">
+		<p:menuButton value="Opções">
+		<p:menuitem value="Print" icon="ui-icon-print" />
+		<p:menuitem value="alterar" icon="ui-icon-disk"></p:menuitem>
+		</p:menuButton>
+	</f:facet>
+</p:toolbar>
+</h:form>
+<p:dataTable value="#{bean.pessoas}" var="p" border="1" id="tabelaPessoa">
+<p:column headerText="Nome">#{p.nome}</p:column>
+<p:column headerText="Email">#{p.email}</p:column>
+<p:column headerText="Editar">
+<p:button value="Editar" outcome="/sucesso.xhtml?parametro=#{p.nome}"/>
+</p:column>
+</p:dataTable>
+
+</h:body>
+</html>
